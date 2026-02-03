@@ -204,6 +204,18 @@ impl Emu {
                 let y = digit3 as usize;
                 self.v_reg[x] |= self.v_reg[y];
             }
+            // VX &= VY
+            (8, _, _, 2) => {
+                let x = digit2 as usize;
+                let y = digit3 as usize;
+                self.v_reg[x] &= self.v_reg[y];
+            }
+            // VX ^= VY
+            (8, _, _, 3) => {
+                let x = digit2 as usize;
+                let y = digit3 as usize;
+                self.v_reg[x] ^= self.v_reg[y];
+            }
 
             // VX += VY
             (8, _, _, 4) => {
